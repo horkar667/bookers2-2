@@ -1,0 +1,16 @@
+<% if model.errors.any? %>
+<div class="container px-5 px-sm-0">
+ <div class="row">
+   <div id="error_explanation" class="alert alert-danger">
+     <h3 class="alert_message">
+      <%= model.errors.count %> error prohibited this obj from being saved:
+     </h3>
+     <ul>
+       <% model.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+   </div>
+ </div>
+</div>
+<% end %>
