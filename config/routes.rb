@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search' => 'searches#search'
   get 'relationships/create'
   get 'relationships/destroy'
   get 'create/destroy'

@@ -1,0 +1,22 @@
+<table class="table">
+ <thead>
+   <tr>
+     <th></th>
+     <th>title</th>
+     <th>opinion</th>
+     <th></th>
+   </tr>
+ </thead>
+  <% books.each do |book| %>
+   <tbody>
+     <tr>
+       <td>
+        <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, format: 'jpeg' %>
+       </td>
+       <td><%= book.title %></td>
+       <td><%= book.body %></td>
+       <td><%= link_to "Show", book_path(book) %></td>
+     </tr>
+   </tbody>
+  <% end %>
+</table>
