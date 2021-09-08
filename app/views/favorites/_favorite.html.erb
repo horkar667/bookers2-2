@@ -1,0 +1,9 @@
+<% if book.favorited_by?(current_user) %>
+  <p class ="unlike-button">
+    <%= render "favorites/unlike", book: book %>
+  </p>
+<% else %>
+  <p class ="like-button">
+    <%= render "favorites/like", book: book %>
+  </p>
+<% end %>

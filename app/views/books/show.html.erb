@@ -24,16 +24,8 @@
             </td>
             <td><%= @book_show.title %></td>
             <td><%= @book_show.body %></td>
-            <td>
-              <% if @book_show.favorited_by?(current_user) %>
-                <p class ="unlike-button">
-                  <%= render "books/unlike", book: @book_show %>
-                </p>
-                <% else %>
-                <p class ="like-button">
-                  <%= render "books/like", book: @book_show %>
-                </p>
-              <% end %>
+            <td class="favorite-button_<%= @book_show.id %>">
+              <%= render "favorites/favorite", book: @book_show %>
             </td>
             <td>コメント数：<%= @book_show.book_comments.count %></td>
             <% if @user == current_user %>
@@ -44,7 +36,7 @@
           </tbody>
         </table>
         <div class="comments">
-         <%= render "form", book_show: @book_show %>
+         <%= render "book_comments/form", book: @book_show %>
         </div>
         <div class= "new-comment">
           <%= form_with(model:[@book_show, @comment], remote: true) do |f| %>
