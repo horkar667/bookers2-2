@@ -1,0 +1,3 @@
+<%= link_to book_favorites_path(book), method: :post, remote: true do %>
+  <i class="fas fa-heart"><%= book.favorites.count %></i>
+<% end %>

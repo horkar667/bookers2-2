@@ -1,0 +1,3 @@
+$(".unlike-button").html("<%= j(render "books/unlike , book: book") %>")
+$("#follow-button").html("<%= j(render "users/follow, book: @book") %>")
+$(".unlike-button").html("<%= j(render "books/unlike , book: @book_show") %>")
