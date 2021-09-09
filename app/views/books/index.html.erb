@@ -1,5 +1,4 @@
 <main>
-  <%= render 'layouts/error_messages', model: @book %>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <%= render 'layouts/searches' %>
@@ -9,8 +8,9 @@
         <div class="row">
           <%= link_to "", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
         </div>
+        <%= render 'layouts/error_messages', model: @book %>
         <h2 class="mt-3">New book</h2>
-        <%= render "layouts/edit", book: @book %>
+        <%= render "books/form", book: @book %>
       </div>
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
@@ -37,6 +37,20 @@
                  <%= render "favorites/favorite", book: book %>
                 </td>
                 <td>コメント数：<%= book.book_comments.count %></td>
+                <!--星評価-->
+                <td><div id="star-rate-<%= book.id %>"></div></td>
+                <script>
+                $('#star-rate-<%= book.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= book.rate %>,
+                });
+                </script>
+                <!--/星評価-->
               </tr>
             <% end %>
           </tbody>
