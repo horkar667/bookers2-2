@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
   def index
     @user = current_user
-    @books = Book.all
+    @books = Book.order(params[:sort])
     @book = Book.new
   end
 
