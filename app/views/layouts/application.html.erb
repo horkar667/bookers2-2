@@ -33,6 +33,12 @@
             <li>
               <%= link_to " logout", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light me-2" %>
             </li>
+            <li>
+              <%= form_with url: books_path, method: :get, local: true do |f| %>
+                <%= f.text_field :content, placeholder: "カテゴリー" %>
+                <%= f.submit '検索' %>
+              <% end %>
+            </li>
           <% else %>
             <li>
               <%= link_to " Home", "/", class: "fas fa-home nav-link text-light me-2" %>

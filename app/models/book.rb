@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
   validates :rate, presence: true
+  validates :category, presence: true
 
   belongs_to :user
 

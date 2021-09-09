@@ -3,9 +3,15 @@ class BooksController < ApplicationController
   before_action :ensure_current_user, {only: [:edit]}
 
   def index
-    @user = current_user
-    @books = Book.order(params[:sort])
-    @book = Book.new
+    if params[:content]
+      @books = Book.where(category: params[:content])
+      @user = current_user
+      @book = Book.new
+    else
+      @user = current_user
+      @books = Book.order(params[:sort])
+      @book = Book.new
+    end
   end
 
   def show
@@ -52,7 +58,7 @@ class BooksController < ApplicationController
     private
 
   def book_params
-    params.require(:book).permit(:title,:body,:user_id,:rate)
+    params.require(:book).permit(:title,:body,:user_id,:rate,:category)
   end
 
   def ensure_current_user

@@ -7,6 +7,10 @@
     <%= f.label :opinion %><br>
     <%= f.text_area :body, autofocus: true, id:"inputBody", class: "form-control book_body" %>
   </div>
+  <div class="form-group">
+    <%= f.label :category %><br>
+    <%= f.text_field :category, autofocus: true, id:"inputTitle", class: "form-control book_category" %>
+  </div>
     <!-- 評価 -->
   <div class="form-group row" id="star">
     <%= f.label :rate,'Rate', class:'col-md-3 col-form-label' %>
